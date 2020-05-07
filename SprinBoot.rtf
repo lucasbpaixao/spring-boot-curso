@@ -1,0 +1,64 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Consolas;}{\f2\fnil\fcharset0 Consolas;}}
+{\colortbl ;\red128\green128\blue128;\red3\green168\blue216;\red217\green232\blue247;\red98\green98\blue98;\red18\green144\blue195;\red230\green230\blue250;\red150\green236\blue63;\red204\green108\blue29;\red121\green171\blue255;\red23\green198\blue163;}
+{\*\generator Riched20 10.0.17763}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\qc\f0\fs56\lang22 SpringBoot - modulo 1\par
+\par
+
+\pard\sa200\sl276\slmult1\b\fs40 Estudar Stream java 8.\fs56\par
+\fs28 Criando Projeto SpringBoot:\b0  Para criar um projeto do SpringBoot vc pode criar um projeto maven normal e adicionar as dependencias ou entrar no site \ul start.spring.io \ulnone e gerar um projeto.\par
+Caso queira criar um projeto usando maven comum deve ter a tag parent que serve para heradar o pom.xml do SpringBoot.\par
+Tag parent: \par
+\cf1\f1\fs22 <\cf2\b parent\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b groupId\cf1\b0 >\cf0 org.springframework.boot\cf1 </\cf2\b groupId\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b artifactId\cf1\b0 >\cf0 spring-boot-starter-parent\cf1 </\cf2\b artifactId\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b version\cf1\b0 >\cf0 2.1.14.BUILD-SNAPSHOT\cf1 </\cf2\b version\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b relativePath\cf1\b0 />\cf3  \cf4 <!-- lookup parent from repository -->\cf0\par
+\cf1 </\cf2\b parent\cf1\b0 >\par
+\cf0\f0\fs28 Para criar uma aplica\'e7\'e3o web \'e9 s\'f3 selecionar o modulo web nas dependencias iniciais no site \ul start.spring.io\ulnone  .\b\par
+Executar projeto: \b0 Para executar o projeto o Spring cria uma classe chamada NomeDoProjetoApplication, nesta classe tem um metodo main e um comando que executa o Tomcat que j\'e1 vem com o SpringBoot, na classe tambem tem a anota\'e7\'e3o @SpringBootApplication que indica que aquela classe \'e9 a classe que ira executar o projeto.\par
+Comando: \cf5\f1\fs22 SpringApplication\cf6 .\cf7\i run\cf0\i0\f2\lang1046 (NomeClasseApplication\f1\lang22 .\cf8 class\cf0\f2\lang1046 ,\cf3\f1\lang22  \cf9 args\cf0 );\b\f0\fs28\par
+Mapeando URL's: \b0 Para mapear url's \'e9 nessessario ter uma classe controller para indicar que uma classe \'e9 um controller deve se usar a anota\'e7\'e3o @Controller. Para mapear a Url o controller deve se colocar a anota\'e7\'e3o @RequestMapping(url), e o comando @ResponseBody caso voc\'ea n\'e3o queira retornar uma pagina.\par
+\b Importancia @ResponseBody: \b0 Ao n\'e3o colocar o @ResponseBody, o Spring entende que voce est\'e1 retornando uma pagina e acaba dando erro de 404.\par
+\b Retorno Spring: \b0 Por padr\'e3o quando se coloca um objeto ou uma lista no retorno do metodo, oque \'e9 recebido pelo client \'e9 um JSON que \'e9 gerado pela biblioteca Jackson.\par
+\b @RestController: \b0 Essa anota\'e7\'e3o serve para indicar para o Spring que todos os metodos daquele controllerretorn\'e3o algum tipo dado e n\'e3o uma pagina.\par
+\b SpringBoot DevTools: \b0 O SpringBoot DevTools serve para ajudar os desenvolvedores, por exemplo atualizando o servidor a cada altera\'e7\'e3o no codigo.\par
+Tag SpringBoot DevTools: \par
+\cf1\f1\fs20 <\cf2\b dependency\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b groupId\cf1\b0 >\cf0 org.springframework.boot\cf1 </\cf2\b groupId\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b artifactId\cf1\b0 >\cf0 spring-boot-devtools\cf1 </\cf2\b artifactId\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b scope\cf1\b0 >\cf0 runtime\cf1 </\cf2\b scope\cf1\b0 >\cf0\par
+\cf1 </\cf2\b dependency\cf1\b0 >\cf0\f0\fs28\par
+\b DTO ou VO\b0 : O DTO \'e9 um tipo de classe que s\'f3 retorna valores especificos diferente das classes de modelo/dominio.\par
+\b Usar JPA: \b0 Para usar JPA no Spring boot \'e9 s\'f3 adicionar a tag\par
+ \cf1\f1\fs20 <\cf2\b dependency\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b groupId\cf1\b0 >\cf0 org.springframework.boot\cf1 </\cf2\b groupId\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b artifactId\cf1\b0 >\cf0 spring-boot-starter-data-jpa\cf1 </\cf2\b artifactId\cf1\b0 >\cf0\par
+\cf1 </\cf2\b dependency\cf1\b0 >\cf0\f0\fs28\par
+\b H2: \b0 O h2 \'e9 um banco de dados em memoria que n\'e3o exige muita infraestrutura. Para adicionar o H2 ao seu projeto \'e9 s\'f3 colocar a tag:\par
+\cf1\f1\fs20 <\cf2\b dependency\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b groupId\cf1\b0 >\cf0 com.h2database\cf1 </\cf2\b groupId\cf1\b0 >\cf0\par
+\cf3\tab\cf1 <\cf2\b artifactId\cf1\b0 >\cf0 h2\cf1 </\cf2\b artifactId\cf1\b0 >\cf0\par
+\cf1 </\cf2\b dependency\cf1\b0 >\cf0\f0\fs28\par
+\b Application.properties:\b0  Nesse arquivo fica todas as propriedades da nossa aplica\'e7\'e3o Spring boot.\par
+\b data.sql: \b0 O data.sql \'e9 um arquivo que fica no diretorio src/main/resources esse arquivo contem comandos sqls que sempre ser\'e3o executados quando a aplica\'e7\'e3o ser executada.\par
+\b /h2-console:\b0  Ao configurar o caminho do console do h2 no application.properties, voc\'ea pode acessar ele na url \ul\fs20 localhost:8080/h2-console\ulnone\fs28 . Linha de configura\'e7\'e3o: \f1\fs24 spring.h2.console.path=/\cf10 h2-console\cf0\b\f0\fs28\par
+JpaRepository: \b0 O JpaRepository \'e9 uma interface criada pelo Sprign para facilitar a manipula\'e7\'e3o de dados, sem ser necessaria a utiliza\'e7\'e3o de DAO\'b4s.\par
+\b @Autowired: \b0 O @Autowired serve para mostrar o ponto de injess\'e3o de uma dependencia do sistema, ele pode ser usado em propriedades, construtore e em metodos. Para uma classe ser elegivel a inje\'e7\'e3o ela de ter uma das anota\'e7\'f5es como: @Component, @Service, @Controller e @Repository.\par
+\b Construtor Default: \b0 Na JPA \'e9 exigido que todas as entidades possuam o construtor defult, o construtor que n\'e3o recebe parametros.\par
+\b Passando parametro URL: \b0 Para seu controller receber parametro \'e9 bem simples, \'e9 necessario apenas criar o parametro no metodo e colocar na url: "?nomeParametro=valor".\par
+\b Filtrando por campos: \b0 Para se criar filtros por campos se deve criar um metodo na interface do JPARepository com o nome findByNomeCampo. Caso o seu campo seja de um relcionamento \'e9 s\'f3 colocar findByNomeEntidade_NomeCampo.\par
+\b Criando Querys personalizadas:\b0  Para criar uma query personalizada \'e9 s\'f3 criar um metodo na interface e colocar a anota\'e7\'e3o @Query(queryEmJPQL), nessa  query os parametros do metodo devem receber @Param("nomeParametro").\par
+\b Usando verbos HTTP: \b0 Quando for usar os verbos HTTP deve ser feito uma altera\'e7\'e3o no @RequestMaping, mudando ele para @RequestMaping(value="url", method=RequestMethod.metodo).\par
+\b URL\'b4s globais: \b0 quando uma url for usada pela classe inteira o @RequestMapping pode ficar acima da declara\'e7\'e3o da classe, a divis\'e3o dos metodos seria pelos verbos do HTTP. E para mapear cada verbo HTTP usa a anota\'e7\'e3o @VerboMapping.\par
+\b Form: \b0 O tipo de classe form \'e9 um tipo de classe como se fosse um DTO, porem esse tipo de classe \'e9 para input e o DTO \'e9 para output.\par
+\b Parametros metodo Post: \b0 Quando recebemos parametros no metodo POST devemos usar a anota\'e7\'e3o @RequestBody para especificar que o parametros est\'e3o vindo dentro do corpo da requisi\'e7\'e3o e n\'e3o na URL.\par
+\b Retornando codigo 201 no POST: \b0 para retornar o codigo 201 use a classe ResponseEntity<ObjetoRetornavel> e com esse objeto vc pode retornar o seguinte comando: ResponseEntity.created(uri).body(objetoRetornavel).\par
+\b Criando URI: \b0 Para criar uma URI podemos receber no para metro um objeto do tipo UriComponentsBuilder e fazer os seguintes comandos: uriBuilder.path("/url/\{parametroDinamico\}")  para indicar o path da uri tambem podemos utilizar buildAndExpand(parametroDinamico) para colocar o parametro e usar o toUri() para converter tudo para um objeto do tipo URI.\par
+\b Bean Validation: \b0 O bean validation \'e9 uma lib do java que faz valida\'e7\'f5es a partir de anota\'e7\'f5es acima dos atributos, e para dizer para o Spring que deve ser feito as valida\'e7\'f5es \'e9 s\'f3 colocar a anota\'e7\'e3o @Valid acima do objeto.\par
+\b Controller Adivice: \b0 O Adivice \'e9 um Handler que pega exce\'e7\'f5es de outros controllers e trata esses erros. Para criar um desses se usa a anota\'e7\'e3o @RestControllerAdivice. O Spring quando redirecionado para um Adivice sempre retorna o codigo 200 por considerar que esse erro foi tratado, para evitar isso usamos a anota\'e7\'e3o @ResponseStatus(code = HttpStatus.BAD_REQUEST) acima do handler da exce\'e7\'e3o.\par
+\b @ExceptionHandler(Exception): \b0 Redireciona todas as exce\'e7\'f5es do tipo do parametro para o metodo que foi atribuido essa anota\'e7\'e3o.\par
+\b @Transactional: \b0 Indica para o Spring que ao final do metodo as altera\'e7\'f5es feitas em objetos da JPA devem ser comitadas;\b\par
+Comandos:\par
+Arrays.asList(objeto, objeto, objeto) = \b0 Cria um array com os objeto passados no parametro;\par
+}
+ 
