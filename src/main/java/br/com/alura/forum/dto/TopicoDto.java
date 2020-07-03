@@ -1,8 +1,8 @@
 package br.com.alura.forum.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
+
+import org.springframework.data.domain.Page;
 
 import br.com.alura.forum.modelo.Topico;
 
@@ -33,12 +33,14 @@ public class TopicoDto {
 		return dataCriacao;
 	}
 	
-	public static List<TopicoDto> converter(List<Topico> topicos){
+	public static Page<TopicoDto> converter(Page<Topico> topicos){
 		
 		//Atualização do java 8 permite simplicação de codigos usando metodos estilo javaScript
 		// .map = Está fazendo que para cada topico ele passe esse topicocomo parametro para o construtor do TopicoDto
 		// Collector.toList() = transcforma o map em uma lista
 		
-		return topicos.stream().map(TopicoDto::new).collect(Collectors.toList());
+		//topicos.stream().map(TopicoDto::new).collect(Collectors.toList());
+		
+		return topicos.map(TopicoDto::new);
 	}
 }
