@@ -8,10 +8,8 @@ import javax.persistence.Id;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
-public class Perfil implements GrantedAuthority{
-	/**
-	 * 
-	 */
+public class Perfil implements GrantedAuthority {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,8 +35,7 @@ public class Perfil implements GrantedAuthority{
 
 	@Override
 	public String getAuthority() {
-		return this.nome;
+		return nome;
 	}
-	
 	
 }
